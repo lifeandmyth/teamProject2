@@ -41,7 +41,7 @@ def find(wait, css_selector):
 
 html = ''
 page = 1
-while page <= 5:
+while page <= 20:
   try:
     # Scroll down to bottom
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -115,7 +115,6 @@ for li in ulbody:
       # news_writer = s.select_one(".information > li > .icon-user-o")
       # print(news_writer)
 
-    # print(f"{exc_name}, {ts_rate}")
     #2차원 리스트 만들기: exc_list에 row리스트(=레코드) 한 줄씩 입력(for문)
 
     # news_tags_f_l를 하나의 str 요소로 만들기 위해 문자열화
@@ -151,7 +150,17 @@ file_path = save_dir + fname
 with open(file_path, "w", newline="", encoding="utf-8") as f:
 
   csv_writer = csv.writer(f)
-  
+  head = [
+    'news_date',
+    'news_title',
+    'news_text_sm',
+    'url_in',
+    'news_writer',
+    'tags_string'
+
+  ]
+  csv_writer.writerow(head)
+
   ## 바디 붙이기
   for row in news_t_list:
     # data는 1차원 리스트여야 함.

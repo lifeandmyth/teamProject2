@@ -34,6 +34,10 @@ okt = Okt()
 for w in word_list:
   print(okt.nouns(w))
 
+
+# 단어로 분해한 제목 리스트를 다시 날짜와 함께 결합해 새 테이블
+
+
 #==============================
 # mySQL db에 업로드하기
 
